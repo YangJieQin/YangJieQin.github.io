@@ -2162,7 +2162,7 @@
 /* Image */
 
 	.image {
-		border-radius: 5px;
+		border-radius: 20px;
 		border: 0;
 		display: inline-block;
 		position: relative;
@@ -2212,6 +2212,11 @@
 			.image.main img {
 				width: 100%;
 			}
+
+		.zoom-portrait img {
+			transform: scale(1.4);
+			transform-origin: center;
+		}
 
 /* List */
 
@@ -2796,9 +2801,9 @@
 		-ms-transition: background-color 0.2s ease-in-out;
 		transition: background-color 0.2s ease-in-out;
 		background-color: rgba(53, 56, 73, 0.95);
-		height: 3.5em;
+		height: 3em;
 		left: 0;
-		line-height: 3.5em;
+		line-height: 3em;
 		padding: 0 1.25em;
 		position: fixed;
 		top: 0;
@@ -3098,7 +3103,7 @@
 /* Banner */
 
 	#banner {
-		padding: 6.5em 0 3em 0 ;
+		padding: 4em 0 2em 0 ;
 	}
 
 		#banner .inner {
@@ -3865,3 +3870,5 @@
 		}
 
 	}
+
+	
