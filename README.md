@@ -1,4 +1,4 @@
-# yangjieqin.github.io
+# Welcome to my Website!
 
 Personal website for **Jack Qin** — projects, experience, blog, and ways to get in touch.
 
