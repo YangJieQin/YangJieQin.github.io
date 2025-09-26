@@ -5,6 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="../assets/css/main.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
   </head>
   <body>
     <div id="page-wrapper">
@@ -36,6 +37,13 @@
                 It could be a story about an utterly peculiar stranger I met while floating down the Danube, or a rant about a bad day that I had.
             </p>
 
+            <p>
+                They say the hardest part of blogging is the consistency. 
+                I intentionally set expectations as low and vague as possible to help with this, although those that know me know that I will always value quality over quantity. 
+                I also seldom post on social media, so this blog will perhaps fill that void in my life. 
+                Fear not that I will run out of things to write as I have almost a quarter century of life to share with you all.
+            </p>
+
             <!-- <h3>What to expect</h3>
             <ul>
               <li>Short, practical articles (no fluff)</li>
@@ -50,12 +58,22 @@
       </section>
 
       <section id="footer">
-        <div class="inner">
-          <ul class="copyright">
-            <li>&copy; Untitled Inc. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-          </ul>
-        </div>
-      </section>
+			<div class="inner">
+				<ul class="icons" style="display:flex; gap:1.5rem; justify-content:center; padding:0; list-style:none;">
+                    <li><a href="https://www.instagram.com/yangjie.qin/" target="_blank" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+                    <li><a href="https://www.facebook.com/yangjie.qin/"  target="_blank" class="icon brands fa-facebook"><span class="label">Facebook</span></a></li>
+                    <li><a href="https://github.com/YangJieQin"          target="_blank" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+                    <li><a href="https://x.com/YangJieQin1"              target="_blank" class="icon brands fa-x-twitter"><span class="label">X (Twitter)</span></a></li>
+                    <li><a href="https://www.linkedin.com/in/yang-jie-qin/" target="_blank" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+                    <li><a href="mailto:qin.jack1028@gmail.com"          target="_blank" class="icon fa-envelope"><span class="label">Email</span></a></li>
+                    <li><a href="https://yangjieqin.github.io"           target="_blank" class="icon fa-home"><span class="label">Website</span></a></li>
+                </ul>
+				<ul class="copyright">
+					<li>&copy; <span id="y"></span> Jack Qin</li>
+					<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+				</ul>
+			</div>
+		</section>
     </div>
 
     <script src="../assets/js/skel.min.js"></script>
@@ -63,5 +81,6 @@
     <script src="../assets/js/jquery.scrollex.min.js"></script>
     <script src="../assets/js/util.js"></script>
     <script src="../assets/js/main.js"></script>
+    <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
   </body>
 </html>
