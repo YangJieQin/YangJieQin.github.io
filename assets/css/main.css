@@ -3876,7 +3876,7 @@
 
 	}
 
-.gallery-grid{
+	.gallery-grid{
             display:grid;
             grid-template-columns:repeat(auto-fill,minmax(350px,1fr)); /* bigger tiles */
             gap:0rem; /* tighter gaps */
@@ -3894,8 +3894,9 @@
         .gallery-tile img{
             width:100%;
             height:100%;
-            aspect-ratio:3/2;        /* wider, cinematic feel */
+            aspect-ratio:6/5;        /* wider, cinematic feel */
             object-fit:cover;
+			object-position: var(--x,50%) var(--y,50%); /* use CSS vars if provided */
             transition:transform .4s ease;
         }
 
@@ -3911,6 +3912,8 @@
             background:linear-gradient(to top, rgba(0,0,0,.65) 0%, rgba(0,0,0,0) 60%);
             opacity:0;
             transition:opacity .3s ease;
+			z-index: 1;              /* sit below the chip */
+  			pointer-events: none;    /* don’t block clicks */
         }
 
         .gallery-tile:hover img{ transform:scale(1.08); }
@@ -3931,6 +3934,10 @@
 			padding:.25rem .5rem;
 			border-radius:.4rem;
 			backdrop-filter:saturate(120%) blur(2px);
+			opacity: 0;                     /* 👈 hidden by default */
+    		transition: opacity .3s ease;   /* 👈 fade in/out */
+			z-index: 2;              /* on top of caption */
+  			pointer-events: none;
 		}
 
 		/* Spacing harmony with your theme */
@@ -3940,3 +3947,150 @@
 
 		/* Keyboard focus outline for accessibility */
 		.gallery-tile:focus{ outline:2px solid #7f9cf5; outline-offset:2px; }
+		.gallery-tile:hover .gallery-chip,
+		.gallery-tile:focus .gallery-chip {
+			opacity: 1;                     /* 👈 only shows on hover/focus */
+		}
+
+		.gallery-tile.portrait img { aspect-ratio: 2 / 3; } /* or 4/5, 1/1, etc. */
+		.focus-top    { object-position: 50% 10% !important; }
+		.focus-bottom { object-position: 50% 90% !important; }
+		.focus-left   { object-position: 10% 50% !important; }
+		.focus-right  { object-position: 90% 50% !important; }
+
+/* ===== Lightbox (pure CSS) ===== */
+.lightbox{
+  position: fixed;
+  inset: 0;
+  display: grid;
+  grid-template-rows: 1fr auto;        /* image area + caption */
+  justify-items: center;
+  align-items: center;
+  padding: clamp(12px, 2vw, 24px);
+  background: rgba(0,0,0,.92);
+  opacity: 0;
+  pointer-events: none;                 /* hidden by default */
+  transition: opacity .2s ease;
+  z-index: 99999;
+}
+
+/* show when targeted */
+.lightbox:target{
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.lightbox img{
+  max-width: min(100%, 1200px);
+  max-height: 80vh;
+  object-fit: contain;
+  border-radius: 6px;
+  box-shadow: 0 12px 40px rgba(0,0,0,.5);
+}
+
+/* long caption area */
+.lightbox .caption{
+  width: min(100%, 1200px);
+  margin-top: 1rem;
+  color: #fff;
+  font-size: 1rem;
+  line-height: 1.6;
+  max-height: 18vh;                     /* scroll if very long */
+  overflow: auto;
+}
+
+/* close controls */
+.lightbox .close{
+  position: fixed;
+  top: 12px; right: 12px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 28px;
+  line-height: 1;
+  background: rgba(255,255,255,.15);
+  padding: 6px 10px;
+  border-radius: 8px;
+}
+
+/* clicking the dark backdrop closes too */
+.lightbox .backdrop{
+  position: absolute; inset: 0;
+  display: block;
+  content: "";
+}
+
+/* Arrows */
+.lightbox .nav{
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 56px;
+  height: 56px;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #fff;
+  font-size: 28px;          /* chevron size */
+  line-height: 1;
+  text-decoration: none;
+
+  background: rgba(0,0,0,.45);
+  border: 1px solid rgba(255,255,255,.35);
+  box-shadow: 0 8px 28px rgba(0,0,0,.45);
+  opacity: .9;
+  transition: background .2s, transform .15s, opacity .15s, border-color .2s;
+  z-index: 10000;
+}
+
+.lightbox .nav:hover{
+  background: rgba(255,255,255,.15);
+  border-color: rgba(255,255,255,.65);
+  opacity: 1;
+  transform: translateY(-50%) scale(1.05);
+}
+.lightbox .nav:active{ transform: translateY(-50%) scale(.98); }
+
+.lightbox .nav.prev { left: clamp(10px, 2vw, 24px); }
+.lightbox .nav.next { right: clamp(10px, 2vw, 24px); }
+
+/* Optional: make the side edges clickable too (subtle gradient on hover) */
+.lightbox .zone{
+  position:absolute; top:0; bottom:0; width:22vw; z-index: 9000;
+}
+.lightbox .zone.left{ left:0; }
+.lightbox .zone.right{ right:0; }
+.lightbox .zone:hover{ background: linear-gradient(to center, rgba(255,255,255,.06), transparent); }
+
+/* Smaller buttons on phones */
+@media (max-width: 640px){
+  .lightbox .nav{ width: 46px; height: 46px; font-size: 22px; }
+}
+
+/* circle-chevron arrows */
+.lightbox-arrow{
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: clamp(2.4rem, 4vw, 4rem); /* bigger arrow */
+  color: rgba(255,255,255,0.95);
+  text-decoration: none;
+  filter: drop-shadow(0 6px 18px rgba(0,0,0,.6));
+  z-index: 10002;                      /* above backdrop/image */
+  cursor: pointer;
+  transition: color .2s ease, transform .15s ease;
+}
+.lightbox-arrow:hover { color:#fff; transform: translateY(-50%) scale(1.04); }
+
+.lightbox-arrow.left  { left: clamp(12px, 2vw, 28px); }
+.lightbox-arrow.right { right: clamp(12px, 2vw, 28px); }
+
+.lightbox-arrow {
+  border: none;
+  background: none;
+}
+

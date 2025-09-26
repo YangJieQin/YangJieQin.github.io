@@ -59,45 +59,101 @@
                     <p class="intro-note">
                         I have the most adorable cat named Minny. Because I love her so much,
                         I made a separate gallery just for her and her pals. 
-                        <br> Check it out
-                        <a href="minny.html">here</a>!
+                        <br> Check out
+                        <a href="minny.html">The Miraculous Journey of Minny McGonagall</a>!
                     </p>
 
                     <!-- ==== Image Wall ==== -->
                     <div class="gallery-grid" aria-label="Photo gallery">
-                        <!-- Duplicate/replace tiles as needed.
-					     Put your images in /images/gallery and update href/alt/caption text. -->
 
-                        <a class="gallery-tile">
+                        <a class="gallery-tile" href="#img1">
                             <span class="gallery-chip">October 2021</span>
-                            <img src="images/gallery/king.jpg" alt="Sunrise while descending Middle Palisade">
+                            <img src="images/gallery/king.jpg" alt="Sunrise while descending Middle Palisade" style="--y: 70%;">
                             <span class="gallery-caption">Sunrise while descending Middle Palisade</span>
                         </a>
 
-                        <a class="gallery-tile">
+                        <div id="img1" class="lightbox" aria-modal="true" role="dialog">
+                            <a href="#" class="backdrop" aria-label="Close"></a>
+                            <img src="images/gallery/king.jpg" alt="Sunrise while descending Middle Palisade">
+                            <div class="caption">
+                                <strong>Middle Palisade, Sierra Crest</strong>
+                                Sunrise while descending Middle Palisade
+                            </div>
+                            <a href="#img2" class="lightbox-arrow right" aria-label="Next"> <i class="fa-solid fa-circle-chevron-right"></i></a>
+                            <a href="#" class="close" aria-label="Close"></a>
+                        </div>
+
+
+                        <a class="gallery-tile" href="#img2">
                             <span class="gallery-chip">April 2024</span>
-                            <img src="images/gallery/nats.JPG" alt="The Team @ 2024 NCTTA Nationals">
-                            <span class="gallery-caption">The team @ 2024 NCTTA Nationals</span>
+                            <img src="images/gallery/nats.JPG" alt="The Team @ 2024 NCTTA Nationals" style="--x: 42%;">
+                            <span class="gallery-caption">The Team @ 2024 NCTTA Nationals</span>
                         </a>
 
-                        <a class="gallery-tile">
+                        <div id="img2" class="lightbox" aria-modal="true" role="dialog">
+                            <a href="#" class="backdrop" aria-label="Close"></a>
+                            <img src="images/gallery/nats.JPG" alt="Santa Cruz Island shoreline, Channel Islands National Park">
+                            <div class="caption">
+                                <strong>Eau Claire, Wisconsin</strong><br>
+                                This was taken outside our Airbnb at the 2024 NCTTA Nationals. 
+                                From left to right: me, Sid, Jiaming, James, Matthew, Bryson, Victor. PC: Michelle
+                            </div>
+                            <a href="#img1" class="lightbox-arrow left"  aria-label="Previous"><i class="fa-solid fa-circle-chevron-left"></i></a>
+                            <a href="#img3" class="lightbox-arrow right" aria-label="Next"><i class="fa-solid fa-circle-chevron-right"></i></a>
+                            <a href="#" class="close" aria-label="Close">✕</a>
+                        </div>
+
+                        <a class="gallery-tile" href="#img3">
                             <span class="gallery-chip">May 2025</span>
                             <img src="images/gallery/sdopen.JPG" alt="2025 SD Open">
-                            <span class="gallery-caption">2025 SD Open, PC: Leon Wang</span>
+                            <span class="gallery-caption">2025 SD Open</span>
                         </a>
 
-                        <a class="gallery-tile">
-                            <img src="images/gallery/sunrise.jpg" alt="Sunrise during Middle Palisade ascent">
+                        <div id="img3" class="lightbox" aria-modal="true" role="dialog">
+                            <a href="#" class="backdrop" aria-label="Close"></a>
+                            <img src="images/gallery/sdopen.JPG" alt="">
+                            <div class="caption">
+                                <strong>Balboa Park Activity Center, San Diego, CA</strong><br>
+                                PC: Leon Wang
+                            </div>
+                            <a href="#img2" class="lightbox-arrow left"  aria-label="Previous"><i class="fa-solid fa-circle-chevron-left"></i></a>
+                            <a href="#img4" class="lightbox-arrow right" aria-label="Next"><i class="fa-solid fa-circle-chevron-right"></i></a>
+                            <a href="#" class="close" aria-label="Close">✕</a>
+                        </div>
+
+                        <a class="gallery-tile" href="#img4">
+                            <img src="images/gallery/sunrise.jpg" alt="Sunrise during Middle Palisade ascent" style="--y: 60%;">
                             <span class="gallery-caption">Sunrise during Middle Palisade ascent</span>
                         </a>
+                        <div id="img4" class="lightbox" aria-modal="true" role="dialog">
+                            <a href="#" class="backdrop" aria-label="Close"></a>
+                            <img src="images/gallery/sunrise.jpg" alt="">
+                            <div class="caption">
+                                <strong>Middle Palisade, Sierra Crest</strong><br>
+                                Sunrise during Middle Palisade ascent
+                            </div>
+                            <a href="#img3" class="lightbox-arrow left"  aria-label="Previous"><i class="fa-solid fa-circle-chevron-left"></i></a>
+                            <a href="#img5" class="lightbox-arrow right" aria-label="Next"><i class="fa-solid fa-circle-chevron-right"></i></a>
+                            <a href="#" class="close" aria-label="Close">✕</a>
+                        </div>
 
-                        <a class="gallery-tile">
+                        <a class="gallery-tile" href="#img5">
                             <img src="images/gallery/tree.jpeg" alt="Gorgeous tree on a trail near my house">
                             <span class="gallery-caption">Gorgeous tree on a trail near my house</span>
                         </a>
+                        <div id="img5" class="lightbox" aria-modal="true" role="dialog">
+                            <a href="#" class="backdrop" aria-label="Close"></a>
+                            <img src="images/gallery/tree.jpeg" alt="">
+                            <div class="caption">
+                                <strong>Cull Canyon</strong><br>
+                                Gorgeous tree on a trail near my house
+                            </div>
+                            <a href="#img4" class="lightbox-arrow left"  aria-label="Previous"><i class="fa-solid fa-circle-chevron-left"></i></a>
+                            <a href="#" class="close" aria-label="Close">✕</a>
+                        </div>
 
-                        <!-- <a class="gallery-tile" href="gallery/track-chairs.html">
-                            <img src="images/gallery/race.jpg" alt="Athletes in racing wheelchairs at the start line">
+                        <!-- <a class="gallery-tile portrait" href="gallery/track-chairs.html">
+                            <img src="images/gallery/king.jpg" alt="Athletes in racing wheelchairs at the start line">
                             <span class="gallery-caption">Ready. Set. Roll.</span>
                         </a> -->
                     </div>
@@ -135,6 +191,7 @@
     <script src="assets/js/util.js"></script>
     <script src="assets/js/main.js"></script>
     <script>document.getElementById('y').textContent = new Date().getFullYear()</script>
+
 </body>
 
 </html>
